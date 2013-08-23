@@ -17,10 +17,11 @@ Gem::Specification.new do |s|
     lib/**/*
     spec/**/*
     README.md
+    LICENSE
   )]
 
   s.homepage = "http://github.com/StabbyCutyou/print_patch_warning"
-  s.licenses = ["MIT"]
+  s.licenses = ["Custom with a touch of MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.25"
   s.summary = "Yells at you when you should have removed a particular patch by now"
