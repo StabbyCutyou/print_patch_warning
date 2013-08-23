@@ -15,6 +15,8 @@ Gem::Specification.new do |s|
   s.files = Dir[*%w(
     print_patch_warning.gemspec
     lib/**/*
+    spec/**/*
+    README.md
   )]
 
   s.homepage = "http://github.com/StabbyCutyou/print_patch_warning"
@@ -22,5 +24,8 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.25"
   s.summary = "Yells at you when you should have removed a particular patch by now"
+
+  s.add_development_dependency("rspec")
+  s.add_development_dependency("bundler")
 end
 
