@@ -1,10 +1,10 @@
 module PrintPatchWarning
   def print_patch_warning(options={}, &blk)
-    raise ArgumentError("print_patch_warning requires a :version argument to be set") unless options[:version]
-    raise ArgumentError("print_patch_warning requires a :patch argument to be set") unless options[:patch]
+    raise(ArgumentError, "print_patch_warning requires a :version argument to be set") unless options[:version]
+    raise(ArgumentError, "print_patch_warning requires a :patch argument to be set") unless options[:patch]
+    raise(ArgumentError, "print_patch_warning requires either a :message argument, a block to yield, or both") unless options[:message] || block_given?
   
     past_due = Gem::Version.new(ruby_version) >= Gem::Version.new(options[:version]) && ruby_patch_level >= options[:patch].to_i
-    puts "past? #{past_due}"
     Kernel.warn(options[:message]) if past_due && options[:message]
     yield if !past_due && block_given?
     #Don't want to return anything at all...
