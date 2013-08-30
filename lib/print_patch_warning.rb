@@ -1,5 +1,5 @@
 module PrintPatchWarning
-  def print_patch_warning(options={}, &blk)
+  def print_patch_warning(options={})
     raise(ArgumentError, "print_patch_warning requires a :version argument to be set") unless options[:version]
     raise(ArgumentError, "print_patch_warning requires a :patch argument to be set") unless options[:patch]
     raise(ArgumentError, "print_patch_warning requires either a :message argument, a block to yield, or both") unless options[:message] || block_given?
@@ -23,6 +23,6 @@ module PrintPatchWarning
   module_function :ruby_patch_level
 end
 
-def print_patch_warning(options={}, &blk)
-  PrintPatchWarning.print_patch_warning(options, &blk)
+def print_patch_warning(options={})
+  PrintPatchWarning.print_patch_warning(options)
 end
